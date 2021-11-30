@@ -3,10 +3,12 @@ import Link from 'next/link';
 import { useRouter } from 'next/dist/client/router';
 import MenuSvg from '../components/svg/menu';
 import { useState } from 'react';
+import { parseCookies, destroyCookie } from 'nookies'
 
 export default function Headers(){
   const {pathname} = useRouter();
   const [isOpen, setIsOpen] = useState(false);
+  const {tokenMovies} = parseCookies();
 
   return(
     <nav className='bg-gray-300'>
@@ -51,6 +53,22 @@ export default function Headers(){
               onClick={() => setIsOpen(false)} 
             >Payed Articles</a>
           </Link>
+          {tokenMovies && (
+            <>
+              <Link href='/add-movie'>
+                <a 
+                  className={`${pathname === '/add-movie' ? 'text-yellow-500' : 'text-blue-600'} text-2xl lg:text-sm`} 
+                  onClick={() => setIsOpen(false)} 
+                >Add Movies</a>
+              </Link>
+              <Link href='/login'>
+                <a 
+                  className='text-blue-600 text-2xl lg:text-sm'
+                  onClick={() => {setIsOpen(false); destroyCookie(null, 'tokenMovies') }} 
+                >Logout</a>
+              </Link>
+            </>
+          )}
         </div>
       </div>
     </nav>

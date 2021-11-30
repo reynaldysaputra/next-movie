@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function MovieCard({movie}) {
   const API_URL = process.env.NEXT_PUBLIC_API_URL;
@@ -12,7 +13,7 @@ export default function MovieCard({movie}) {
       <div className='rounded-xl shadow sm:w-[45%] lg:w-[32%] overflow-hidden mt-8'>
         {movie.poster && (
           <div className='h-[480px]'>
-            <img src={`${API_URL}${movie.poster.url}`} alt={movie.title} className='w-full h-full object-cover' />
+            <Image src={`${API_URL}${movie.poster.url}`} alt={movie.title} width={movie.poster.width} height={movie.poster.height} />
           </div>
         )}
         <div className='m-3'>
