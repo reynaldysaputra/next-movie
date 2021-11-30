@@ -45,6 +45,12 @@ export default function Headers(){
               onClick={() => setIsOpen(false)} 
             >Blog</a>
           </Link>
+          <Link href='/payed-articles'>
+            <a 
+              className={`${pathname === '/payed-articles' ? 'text-yellow-500' : 'text-blue-600'} text-2xl lg:text-sm`} 
+              onClick={() => setIsOpen(false)} 
+            >Payed Articles</a>
+          </Link>
         </div>
       </div>
     </nav>

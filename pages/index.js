@@ -34,7 +34,7 @@ export default function Home({movies, page, numberOfMovies}) {
           >Next</button>
         </div>
       </Layout>
-    ) : <></>
+    ) : <></> 
   )
 }
 

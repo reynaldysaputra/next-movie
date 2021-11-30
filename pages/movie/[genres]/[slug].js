@@ -1,6 +1,11 @@
 import Layout from '../../../components/layout';
+import Custom500 from '../../500';
 
-export default function MovieDetail({movie}) {
+export default function MovieDetail({errorCode, movie}) {  
+  if (errorCode) {
+    return <Custom500  />
+  }
+
   return(
     <Layout title={`${movie.title} - Next Movies`} metaDescription={movie.description}>
       <div className='mt-5 space-y-4'>
@@ -18,7 +23,8 @@ export async function getServerSideProps(ctx){
 
   return {
     props: {
-      movie: movieRes[0]
+      errorCode: movieRes.length > 0 ? false : 500,
+      movie: movieRes.length > 0 ? movieRes[0] : {}
     }
   }
 }
