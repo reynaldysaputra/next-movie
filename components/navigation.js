@@ -29,6 +29,12 @@ export default function Headers(){
             className='absolute lg:hidden top-5 right-8 text-2xl text-white cursor-pointer'
             onClick={() => setIsOpen(false)}
           >X</div>
+          <Link href='/filter-movies'>
+            <a 
+              className={`${pathname === '/filter-movies' ? 'text-yellow-500' : 'text-blue-600'} text-2xl lg:text-sm`} 
+              onClick={() => setIsOpen(false)} 
+            >Filter Movies</a>
+          </Link>
           <Link href='/about'>
             <a 
               className={`${pathname === '/about' ? 'text-yellow-500' : 'text-blue-600'} text-2xl lg:text-sm`} 
