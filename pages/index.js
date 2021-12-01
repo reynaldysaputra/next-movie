@@ -6,13 +6,13 @@ import { useEffect } from 'react';
 export default function Home({movies, page, numberOfMovies}) {
   const router = useRouter();
   const lastPage = Math.ceil(numberOfMovies / 3); // Menghitung jumlah page, jika jumlah page 7 maka akan dibagi 3 hasil  2.3333, dan Mat.ceil akan membulatkan keatas menjadi 3
-
+  
   useEffect(() => {
-    if(movies.length <= 1) router.replace('/404');
+    if(movies.length < 1) router.replace('/404');
   }, [page])
 
   return (
-    movies.length > 1 ? (
+    movies.length >= 1 ? (
       <Layout title='Next Movies' metaDescription='Movies App from Reynaldy saputra'>
         <h2 className='font-bold text-xl my-7'>Latest Movies</h2>
         <div className='flex flex-col sm:flex-row flex-wrap sm:px-0 lg:space-x-3 mb-10 justify-start'>
