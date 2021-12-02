@@ -35,6 +35,12 @@ export default function Headers(){
               onClick={() => setIsOpen(false)} 
             >Filter Movies</a>
           </Link>
+          <Link href='/posts'>
+            <a 
+              className={`${pathname === '/posts' ? 'text-yellow-500' : 'text-blue-600'} text-2xl lg:text-sm`} 
+              onClick={() => setIsOpen(false)} 
+            >Posts</a>
+          </Link>
           <Link href='/about'>
             <a 
               className={`${pathname === '/about' ? 'text-yellow-500' : 'text-blue-600'} text-2xl lg:text-sm`} 
